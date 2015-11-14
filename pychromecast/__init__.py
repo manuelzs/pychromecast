@@ -238,11 +238,11 @@ class Chromecast(object):
         else:
             self.status_event.clear()
 
-    def start_app(self, app_id):
+    def start_app(self, app_id, block_till_launched=True):
         """ Start an app on the Chromecast. """
         self.logger.info("Starting app %s", app_id)
 
-        self.socket_client.receiver_controller.launch_app(app_id)
+        self.socket_client.receiver_controller.launch_app(app_id, block_till_launched)
 
     def quit_app(self):
         """ Tells the Chromecast to quit current app_id. """
